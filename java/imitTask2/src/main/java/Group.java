@@ -29,7 +29,7 @@ public class Group {
         return arrayInt;
     }
 
-    public void setArrayInt(int[] arrayInt) {
+    public void setArrayInt(int ... arrayInt) {
         this.arrayInt = arrayInt;
     }
     public int getLength(){

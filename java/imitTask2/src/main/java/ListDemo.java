@@ -66,7 +66,7 @@ public class ListDemo {
         }
         return setHumans;
     }
-    public static List<Integer> listInteger(Map<Integer, Human> map){
+    public static List<Integer> AgeMore18 (Map<Integer, Human> map){
         List<Integer> listInteger = new ArrayList<Integer>();
         Set<Integer> integerSet = map.keySet();
         int key;
@@ -78,4 +78,5 @@ public class ListDemo {
             }
         }return listInteger;
     }
+
 }
