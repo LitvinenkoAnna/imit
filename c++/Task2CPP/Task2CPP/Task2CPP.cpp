@@ -2,39 +2,30 @@
 //
 
 #include "stdafx.h"
-struct SizeException {};
-class RingBuffer {
-private:
-	double *arr;
-	int size;
-	int firstPointer;
-	int lastPointer;
-public:
-	RingBuffer(int size) {
-		arr = new double[size];
-		this->size = size;
-		firstPointer = 0;
-		lastPointer = 0;
-	}
-	RingBuffer(const RingBuffer &copy) {
-		this->size = copy.size;
-		arr = new double[copy.size];
-		for (int i = 0; i < size; i++) {
-			arr[i] = copy.arr[i];
-		}
-	}
-	void addElement(double element) {
-		if (lastPointer == firstPointer) {
-			throw SizeException();
-		 }
-		arr[lastPointer] = element;
-		lastPointer++;
-		lastPointer = lastPointer%size;
-	}
-};
+#include "RingBuffer.h"
+#include "Iterator.h"
+#include <iostream>
 
+using namespace std;
 int main()
 {
+	RingBuffer *ringB = new RingBuffer(5);
+	ringB->addElement(1);
+	ringB->addElement(2);
+	ringB->addElement(3);
+	RingBuffer *ringA = new RingBuffer(*ringB);
+	ringA->addElement(0);
+	ringA->addElement(4);
+	if (!ringA->checkEmpty()) {
+		cout << "queue isn't empty" << endl;
+	}
+	Iterator iterator = Iterator(ringB);
+	while (!iterator.finish()) {
+		cout << iterator.getValue() << endl;
+		iterator.next();
+	}
+
+	system("pause");
     return 0;
 }
 

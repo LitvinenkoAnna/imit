@@ -1,0 +1,4 @@
+﻿  Iterator.cpp
+c:\users\student\source\repos\task2cpp\task2cpp\iterator.cpp(25): warning C4244: return: преобразование "double" в "int", возможна потеря данных
+  Task2CPP.vcxproj -> C:\Users\Student\source\repos\Task2CPP\Debug\Task2CPP.exe
+  Task2CPP.vcxproj -> C:\Users\Student\source\repos\Task2CPP\Debug\Task2CPP.pdb (Partial PDB)
