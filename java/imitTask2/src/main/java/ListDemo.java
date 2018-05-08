@@ -36,7 +36,7 @@ public class ListDemo {
         }
         return copyList;
     }
-
+// disjoint
     public static List<Set<Integer>> removeSet(List<Set<Integer>> set, Set<Integer> setInteger) {
         List<Set<Integer>> result = new ArrayList<Set<Integer>>();
         Iterator<Integer> iterator = setInteger.iterator();

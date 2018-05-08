@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Group {
     private int id;
     private int[] arrayInt;
@@ -34,6 +36,24 @@ public class Group {
     }
     public int getLength(){
         return arrayInt.length;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Group group = (Group) o;
+
+        if (getId() != group.getId()) return false;
+        return Arrays.equals(getArrayInt(), group.getArrayInt());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId();
+        result = 31 * result + Arrays.hashCode(getArrayInt());
+        return result;
     }
 }
 

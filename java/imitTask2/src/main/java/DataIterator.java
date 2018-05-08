@@ -21,9 +21,7 @@ public class DataIterator implements Iterator<Integer> {
         for (Group group : dataObj.getGroups()) {
             sizeLocale += group.getLength();
         }
-        if (index + 1 >= sizeLocale) {
-            return false;
-        } else return true;
+        return index + 1 < sizeLocale;
     }
 
     public Integer next() {
@@ -31,8 +29,8 @@ public class DataIterator implements Iterator<Integer> {
         index++;
         bufIndex = index;
         while (bufIndex >= dataObj.getGroups()[tempIndex].getLength()) {
-            tempIndex++;
             bufIndex -= dataObj.getGroups()[tempIndex].getLength();
+            tempIndex++;
         }
         return dataObj.getGroups()[tempIndex].getArrayInt()[bufIndex];
     }
