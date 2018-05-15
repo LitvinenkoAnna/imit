@@ -1,3 +1,5 @@
+package TestClasses;
+
 public class Human {
     private String firstName;
     private String surname;
