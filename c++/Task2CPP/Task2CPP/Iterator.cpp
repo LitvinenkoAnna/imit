@@ -2,11 +2,11 @@
 #include "Iterator.h"
 
 Iterator::Iterator(RingBuffer* &que) {
-	this->index = 0;
+	this->index = que->firstPointer-1;
 	this->queue = que;
 }
 void Iterator::start() {
-	index = 0;
+	index = queue->firstPointer - 1;
 
 }
 void Iterator::next() {
@@ -15,11 +15,9 @@ void Iterator::next() {
 }
 
 bool Iterator::finish() {
-	if (queue->lastPointer+1 == index) {
-		return true;
-	}
-	return false;
-
+	if (queue->lastPointer != index && !queue->checkEmpty()) {
+		return false;
+	} return true;
 }
 int Iterator::getValue() {
 	return queue->arr[index];

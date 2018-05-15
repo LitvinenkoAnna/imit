@@ -8,10 +8,13 @@ RingBuffer::RingBuffer(int size) {
 	this->size = size;
 	firstPointer = 0;
 	lastPointer = 0;
+
 }
 RingBuffer::RingBuffer(const RingBuffer &copy) {
 	flag = copy.flag;
 	this->size = copy.size;
+	firstPointer = copy.firstPointer;
+    lastPointer = copy.lastPointer;
 	arr = new double[copy.size];
 	for (int i = 0; i < size; i++) {
 		arr[i] = copy.arr[i];
